@@ -277,6 +277,7 @@ import { selectPoolEvictions } from './pool-eviction'
 import { createPoolStopper } from './pool-stop'
 import { poolTouchKeys } from './pool-touch-scope'
 import { createKeepAwake } from './power-save'
+import { installPreviewPermissionPolicy } from './preview-permissions'
 import { PreviewReachRegistry } from './preview-reach'
 import {
   createPrimaryRemoteConnection,
@@ -17353,6 +17354,7 @@ app.whenReady().then(() => {
   }
 
   installMediaPermissions()
+  installPreviewPermissionPolicy(partition => session.fromPartition(partition))
   installDownloadHandling()
   registerMediaProtocol()
   installEmbedReferer()
